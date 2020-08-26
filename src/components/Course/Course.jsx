@@ -1,13 +1,18 @@
-import React , {useState}from 'react';
+import React, { useState } from 'react';
 import CourseData from '../../courseData/courseData.js'
+import { Container, Row } from 'react-bootstrap'
 
 const Course = () => {
     const [course, setCourse] = useState(CourseData);
-    
+
     return (
-        <div>
-            
-        </div>
+        <fragment>
+            <Container>
+                <Row>
+
+                </Row>
+            </Container>
+        </fragment>
     );
 };
 
