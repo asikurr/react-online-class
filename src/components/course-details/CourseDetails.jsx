@@ -1,21 +1,28 @@
 import React from 'react';
-import {Card, Button} from 'react-bootstrap'
+import './course-details-style.css'
+import { Card, Button} from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
-const CourseDetails = () => {
+const CourseDetails = (props) => {
+    const { courseName, instructorName, imgUrl, coursePrice } = props.course;
+    const handelAddCourse = props.handelAddCourse;
     return (
-        <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-        </div>
+
+        <Card className="card">
+            <Card.Img variant="top" src={imgUrl} />
+            <Card.Body className="d-flex flex-column">
+                <Card.Title>{courseName}</Card.Title>
+                <p className="text-dark">Instructor Name : <span className="text-muted">{instructorName}</span></p>
+                <h4 className="mt-auto text-danger">Course Price $ {coursePrice} </h4>
+                <Button
+                className="btn btn-warning btn-block" 
+                onClick={() => handelAddCourse(props.course)}>
+                <FontAwesomeIcon icon={faCartPlus} /> Enroll Now</Button>
+          
+            </Card.Body>
+        </Card>
+
     );
 };
 
